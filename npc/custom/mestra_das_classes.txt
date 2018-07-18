@@ -272,22 +272,8 @@ prontera,149,184,4	script	Job-Master	123,{
 			if(.@i == 2) close;
 			if((.FeeType & 1) && .RentCost[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.RentCost[0]+" "+.FeePoint$[1]+"."; close; }
 			if((.FeeType & 2) && .RentCost[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.RentCost[1]+" "+getitemname(.FeeItem)+"."; close; }
-			else if ((eaclass()&EAJ_THIRDMASK==EAJ_RANGER) && !countitem(6124)) {
-				if (!checkfalcon() && getskilllv(127) && !checkwug()) {
-					if(select(" ~ Falcon: ~ Warg")==1) setfalcon;
-					else getitem 6124,1; }
-				else getitem 6124,1; }
-			else if ((eaclass()&EAJ_THIRDMASK==EAJ_MECHANIC) && !checkcart() && getskilllv(39)) {
-				if (!checkmadogear() && getskilllv(2255)) {
-					if(select(" ~ Cart: ~ Mado")==1) setcart;
-					else setmadogear; }
-				else setcart; }
 			else if (!checkcart() && getskilllv(39)) setcart;
 			else if (!checkfalcon() && getskilllv(127) && !checkwug()) setfalcon;
-			else if (!checkmount() && getskilllv(63)) {
-				if (eaclass()&EAJ_THIRDMASK==EAJ_RUNE_KNIGHT) setdragon select("Green:Brown:Gray:Blue:Red");
-				else setriding; }
-			else if (!checkmadogear() && getskilllv(2255)) setmadogear;
 			else { mes "You do not meet requirements to rent."; close; }
 			if((.FeeType & 1) && .RentCost[0]) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.RentCost[0];
 			if((.FeeType & 2) && .RentCost[1]) delitem .FeeItem,.RentCost[1];
