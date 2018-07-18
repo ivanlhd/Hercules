@@ -297,7 +297,7 @@ prontera,149,184,4	script	Job-Master	123,{
 						break;
 						case 5://Wipe
 						break;
-						Default://Close
+						default://Close
 						case 6: next; mes .Name$; mes "Come Again"; close; break;
 					}
 				case 2:
@@ -314,7 +314,7 @@ prontera,149,184,4	script	Job-Master	123,{
 			}
 		break;
 		case 5:
-		Default: next; mes .Name$; mes "Come Again"; close; break;
+		default: next; mes .Name$; mes "Come Again"; close; break;
 	}
 end;
 OnInit:
