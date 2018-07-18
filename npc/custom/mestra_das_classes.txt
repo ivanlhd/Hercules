@@ -88,7 +88,7 @@ prontera,149,184,4	script	Job-Master	123,{
 					set .@menu$,.@menu$ + ":" + .@menulist$[.@i];
 					}
 					set @menu, select(.@menu$)-1;
-					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if (checkfalcon() || checkcart() || checkmount()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
 					if(roclass(eaclass() & EAJ_UPPERMASK) == .ROEAJLIST[@menu]){ mes "Your already that class, no need to change"; close; }
 					if((.FeeType & 1) && .LoadCost[0] > getd(.FeePoint$[0])){ mes "Sorry, You need "+.LoadCost[0]+" "+.FeePoint$[1]+"."; close; }
 					if((.FeeType & 2) && .LoadCost[1] > countitem(.FeeItem)){ mes "Sorry, You don't have enough "+.LoadCost[1]+" "+getitemname(.FeeItem)+"."; close; }
@@ -134,7 +134,7 @@ prontera,149,184,4	script	Job-Master	123,{
 					if((.FeeType & 2) && .@z[1] > countitem(.FeeItem)){ mes "Sorry, You don't have enough "+.@z[1]+" "+getitemname(.FeeItem)+"."; close; }
 					if((.FeeType & 1) && .@z[0]) setd .FeePoint$[0],getd(""+.FeePoint$[0]+"")-.@z[0];
 					if((.FeeType & 2) && .@z[1]) delitem .FeeItem,.@z[1];
-					resetskill;
+					resetskill();
 					callfunc "Save_Stats";
 					callfunc "Load_Stats",getd("JStats"+.ROEAJLIST[@menu]+"$"),.@menuref[@menu];
 					close;
@@ -159,8 +159,8 @@ prontera,149,184,4	script	Job-Master	123,{
 					jobchange .@roc,1;
 					resetlvl 3;
 					sc_end SC_ALL;
-					resetskill;
-					resetstatus;
+					resetskill();
+					resetstatus();
 					set SkillPoint, SkillPoint-49;
 					set StatusPoint, 100;
 					if((.FeeType & 1) && .UnlockRebirth[0]) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.UnlockRebirth[0];
@@ -259,8 +259,8 @@ prontera,149,184,4	script	Job-Master	123,{
 				if(.FeeType & 1) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.@cost[.@i];
 				if(.FeeType & 2) delitem .FeeItem,.@cost[.@i+3];
 			}
-			if (.@i & 1) resetstatus;
-			if (.@i & 2) { sc_end SC_ALL; resetskill; }
+			if (.@i & 1) resetstatus();
+			if (.@i & 2) { sc_end SC_ALL; resetskill(); }
 			close;
 		break;
 		case 3:
@@ -429,8 +429,8 @@ function	script	Load_Stats	{
 		for ( .@i = 0; .@i < .@size; set .@i, .@i+1 ) .@s[.@i] = atoi( .@s$[.@i] );
 		set BaseLevel, .@s[1];
 		set JobLevel, .@s[2];
-		resetstatus;
-		resetskill;
+		resetstatus();
+		resetskill();
 		for(set .@i,13; .@i<19; set .@i,.@i+1){
 			statusup2 .@i, .@s[.@i-9]-1;
 		}

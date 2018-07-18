@@ -1,22 +1,22 @@
 prontera,162,189,3	script	PvP Master	843,{
 
-show "[PvP Master]";
-show "Olá "+strcharinfo(0)+", gostaria de entrar em qual sala?";
+mes "[PvP Master]";
+mes "Olá "+strcharinfo(0)+", gostaria de entrar em qual sala?";
 menu "Arena Master ^FFA500("+getmapusers("guild_vs2")+")^000000",pvp1,"Arena Izlude ^FFA500("+getmapusers("pvp_y_2-2")+")^000000",pvp2,"Sair",-;
 close;
 
 pvp1:
 next;
-show "[PvP Master]";
-show "Faça uma boa viagem!";
+mes "[PvP Master]";
+mes "Faça uma boa viagem!";
 next;
 warp "guild_vs2",0,0;
 close;
 
 pvp2:
 next;
-show "[PvP Master]";
-show "Faça uma boa viagem!";
+mes "[PvP Master]";
+mes "Faça uma boa viagem!";
 next;
 warp "pvp_y_1-2",0,0;
 close;
