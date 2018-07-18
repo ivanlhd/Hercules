@@ -52,7 +52,7 @@ prontera,149,184,4	script	Job-Master	123,{
 	mes "How can I help you today?";
 	set .@M,select(.MainMenu$);
 	switch(.MainList[.@M]){
-		Case 1:
+		case 1:
 			set .@M,select(.JobMenu$);
 			switch(.JobList[.@M]){
 				case 1:	//Change Job
@@ -69,7 +69,7 @@ prontera,149,184,4	script	Job-Master	123,{
 								} else {
 									set .@menulist$[.@i],"";
 								}
-							Break;
+							break;
 							case 4:
 								if(.JobsAllow & 4){
 									set .@menulist$[.@i],""+jobname(roclass(eaclass(.ROEAJLIST[.@i])|EAJL_BABY))+" ^BF0000"+.@s$[1]+"^000000/^40FF00"+.@s$[2]+"^000000";
@@ -77,13 +77,13 @@ prontera,149,184,4	script	Job-Master	123,{
 								} else {
 									set .@menulist$[.@i],"";
 								}
-							Break;
-							case 1: set .@menulist$[.@i],""+jobname(.ROEAJLIST[.@i])+" ^BF0000"+.@s$[1]+"^000000/^40FF00"+.@s$[2]+"^000000"; set .@menuref[.@i],.ROEAJLIST[.@i]; Break;
-							Break;
+							break;
+							case 1: set .@menulist$[.@i],""+jobname(.ROEAJLIST[.@i])+" ^BF0000"+.@s$[1]+"^000000/^40FF00"+.@s$[2]+"^000000"; set .@menuref[.@i],.ROEAJLIST[.@i]; break;
+							break;
 							default:
 							case 0:
 								set .@menulist$[.@i],"";
-							Break;
+							break;
 					}
 					set .@menu$,.@menu$ + ":" + .@menulist$[.@i];
 					}
@@ -106,10 +106,10 @@ prontera,149,184,4	script	Job-Master	123,{
 						switch(.@s$[0]){
 							case 0:
 								set .@menulist$[.@i],jobname(.ROEAJLIST[.@i]); set .@menuref[.@i],.ROEAJLIST[.@i];
-							Break;
+							break;
 							default:
 								set .@menulist$[.@i],"";
-							Break;
+							break;
 					}
 					set .@menu$,.@menu$ + ":" + .@menulist$[.@i];
 					}
@@ -134,7 +134,7 @@ prontera,149,184,4	script	Job-Master	123,{
 					if((.FeeType & 2) && .@z[1] > countitem(.FeeItem)){ mes "Sorry, You don't have enough "+.@z[1]+" "+getitemname(.FeeItem)+"."; close; }
 					if((.FeeType & 1) && .@z[0]) setd .FeePoint$[0],getd(""+.FeePoint$[0]+"")-.@z[0];
 					if((.FeeType & 2) && .@z[1]) delitem .FeeItem,.@z[1];
-					ResetSkill;
+					resetskill;
 					callfunc "Save_Stats";
 					callfunc "Load_Stats",getd("JStats"+.ROEAJLIST[@menu]+"$"),.@menuref[@menu];
 					close;
@@ -159,8 +159,8 @@ prontera,149,184,4	script	Job-Master	123,{
 					jobchange .@roc,1;
 					resetlvl 3;
 					sc_end SC_ALL;
-					ResetSkill;
-					ResetStatus;
+					resetskill;
+					resetstatus;
 					set SkillPoint, SkillPoint-49;
 					set StatusPoint, 100;
 					if((.FeeType & 1) && .UnlockRebirth[0]) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.UnlockRebirth[0];
@@ -185,10 +185,10 @@ prontera,149,184,4	script	Job-Master	123,{
 					close;
 				break;
 				case 5:	//Wipe
-					Mes "Are you sure you want to wipe your "+jobname(roclass(eaclass()))+" data? It will be like you never unlocked it";
+					mes "Are you sure you want to wipe your "+jobname(roclass(eaclass()))+" data? It will be like you never unlocked it";
 					set .@i, select("No:Yes");
 					if (.@i==1) close;
-					Mes "Please type in your name";
+					mes "Please type in your name";
 					input .@Name$;
 					if(.@Name$ != strcharinfo(0)){ next; mes .Name$; mes "Sorry, You need to type your name in correctly."; close; }
 					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
@@ -206,7 +206,7 @@ prontera,149,184,4	script	Job-Master	123,{
 				default:
 				case 6: next; mes .Name$; mes "Come Again"; close; break;
 			}
-		Case 2:
+		case 2:
 			if(.FreeReset[0] <= BaseLevel || .FreeReset[1] <= JobLevel){
 				set .@cost[1],.StatsCost[0]+.StatsCost[1]*BaseLevel;
 				set .@cost[2],.SkillCost[0]+.SkillCost[1]*BaseLevel;
@@ -259,11 +259,11 @@ prontera,149,184,4	script	Job-Master	123,{
 				if(.FeeType & 1) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.@cost[.@i];
 				if(.FeeType & 2) delitem .FeeItem,.@cost[.@i+3];
 			}
-			if (.@i & 1) ResetStatus;
-			if (.@i & 2) { sc_end SC_ALL; ResetSkill; }
+			if (.@i & 1) resetstatus;
+			if (.@i & 2) { sc_end SC_ALL; resetskill; }
 			close;
 		break;
-		Case 3:
+		case 3:
 			next;
 			mes .Name$;
 			mes "Renting allows you to gain a; Cart, Falcon, Mado Gear, Warg, Peco, or Dragon Depending on your class.";
@@ -294,12 +294,12 @@ prontera,149,184,4	script	Job-Master	123,{
 			if((.FeeType & 2) && .RentCost[1]) delitem .FeeItem,.RentCost[1];
 			close;
 		break;
-		Case 4:
+		case 4:
 			next;
 			mes "What would you like deatils on?";
 			set .@M,select(.MainMenu$);
 			switch(.MainList[.@M]){
-				Case 1:
+				case 1:
 					set .@M,select(.JobMenu$);
 					switch(.JobList[.@M]){
 						case 1://Change
@@ -315,20 +315,20 @@ prontera,149,184,4	script	Job-Master	123,{
 						Default://Close
 						case 6: next; mes .Name$; mes "Come Again"; close; break;
 					}
-				Case 2:
+				case 2:
 
 
 					close;
 				break;
-				Case 3:
+				case 3:
 					close; 
 				break;
-				Case 4: next; mes .Name$; mes "No Stupid Questions now..."; close; break;
-				Case 5:
+				case 4: next; mes .Name$; mes "No Stupid Questions now..."; close; break;
+				case 5:
 				default: next; mes .Name$; mes "Come Again"; close; break;
 			}
 		break;
-		Case 5:
+		case 5:
 		Default: next; mes .Name$; mes "Come Again"; close; break;
 	}
 end;
@@ -429,8 +429,8 @@ function	script	Load_Stats	{
 		for ( .@i = 0; .@i < .@size; set .@i, .@i+1 ) .@s[.@i] = atoi( .@s$[.@i] );
 		set BaseLevel, .@s[1];
 		set JobLevel, .@s[2];
-		ResetStatus;
-		ResetSkill;
+		resetstatus;
+		resetskill;
 		for(set .@i,13; .@i<19; set .@i,.@i+1){
 			statusup2 .@i, .@s[.@i-9]-1;
 		}
@@ -471,7 +471,7 @@ function	script	Save_Stats	{			//[Note]: I made this a seperate function so I ca
 		} else if (eaclass() & EAJL_BABY){ set .@s$,"4";
 		} else { set .@s$,"1"; }
 		set .@i$, roclass(eaclass() & EAJ_UPPERMASK);	
-		set .@s$,.@s$+"|"+readparam(11)+"|"+readparam(55)+"|"+skillPointCount()+"|";
+		set .@s$,.@s$+"|"+readparam(11)+"|"+readparam(55)+"|"+skillpointcount()+"|";
 		for(set .@i,13; .@i<19; set .@i,.@i+1){
 			set .@s$,.@s$+readparam(.@i)+"|";
 		}
