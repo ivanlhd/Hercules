@@ -88,7 +88,7 @@ prontera,149,184,4	script	Job-Master	123,{
 					set .@menu$,.@menu$ + ":" + .@menulist$[.@i];
 					}
 					set @menu, select(.@menu$)-1;
-					if (checkfalcon() || checkcart() || checkmount()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if (checkfalcon() || checkcart() || checkmount()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkmount())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
 					if(roclass(eaclass() & EAJ_UPPERMASK) == .ROEAJLIST[@menu]){ mes "Your already that class, no need to change"; close; }
 					if((.FeeType & 1) && .LoadCost[0] > getd(.FeePoint$[0])){ mes "Sorry, You need "+.LoadCost[0]+" "+.FeePoint$[1]+"."; close; }
 					if((.FeeType & 2) && .LoadCost[1] > countitem(.FeeItem)){ mes "Sorry, You don't have enough "+.LoadCost[1]+" "+getitemname(.FeeItem)+"."; close; }
@@ -114,8 +114,8 @@ prontera,149,184,4	script	Job-Master	123,{
 					set .@menu$,.@menu$ + ":" + .@menulist$[.@i];
 					}
 					set @menu, select(.@menu$)-1;
-					if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
-						mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding.";
+					if (checkfalcon() || checkcart() || checkmount() || ismounting()) {
+						mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkmount())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding.";
 						close; 
 					}
 					if((.@menuref[@menu]&EAJL_2) && (roclass(eaclass(.@menuref[@menu])&EAJ_UPPERMASK)) != (roclass(eaclass()|EAJL_2_1)) && (roclass(eaclass(.@menuref[@menu])&EAJ_UPPERMASK)) != (roclass(eaclass()|EAJL_2_2)) && (.@menuref[@menu] != 4046)){
@@ -153,7 +153,7 @@ prontera,149,184,4	script	Job-Master	123,{
 					mes "Are you sure you wish to become reborn?";
 					set .@i, select("Yes:No");
 					if (.@i==2) close;
-					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if (checkfalcon() || checkcart() || checkmount() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkmount())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
 					if((.FeeType & 1) && .UnlockRebirth[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.UnlockRebirth[0]+" "+.FeePoint$[1]+"."; close; }
 					if((.FeeType & 2) && .UnlockRebirth[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.UnlockRebirth[1]+" "+getitemname(.FeeItem)+"."; close; }
 					jobchange .@roc,1;
@@ -175,7 +175,7 @@ prontera,149,184,4	script	Job-Master	123,{
 					mes "Are you sure you wish to become a baby?";
 					set .@i, select("Yes:No");
 					if (.@i==2) close;
-					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if (checkfalcon() || checkcart() || checkmount() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkmount())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
 					if((.FeeType & 1) && .UnlockBaby[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.UnlockBaby[0]+" "+.FeePoint$[1]+"."; close; }
 					if((.FeeType & 2) && .UnlockBaby[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.UnlockBaby[1]+" "+getitemname(.FeeItem)+"."; close; }
 					if(.@eac&EAJL_BABY){ jobchange (.@eac&EAJ_UPPERMASK),0; 
@@ -191,7 +191,7 @@ prontera,149,184,4	script	Job-Master	123,{
 					mes "Please type in your name";
 					input .@Name$;
 					if(.@Name$ != strcharinfo(0)){ next; mes .Name$; mes "Sorry, You need to type your name in correctly."; close; }
-					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if (checkfalcon() || checkcart() || checkmount() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkmount())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
 					if((.FeeType & 1) && .WipeCost[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.WipeCost[0]+" "+.FeePoint$[1]+"."; close; }
 					if((.FeeType & 2) && .WipeCost[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.WipeCost[1]+" "+getitemname(.FeeItem)+"."; close; }
 					sc_end SC_ALL;
@@ -285,7 +285,7 @@ prontera,149,184,4	script	Job-Master	123,{
 				else setcart; }
 			else if (!checkcart() && getskilllv(39)) setcart;
 			else if (!checkfalcon() && getskilllv(127) && !checkwug()) setfalcon;
-			else if (!checkriding() && getskilllv(63)) {
+			else if (!checkmount() && getskilllv(63)) {
 				if (eaclass()&EAJ_THIRDMASK==EAJ_RUNE_KNIGHT) setdragon select("Green:Brown:Gray:Blue:Red");
 				else setriding; }
 			else if (!checkmadogear() && getskilllv(2255)) setmadogear;
