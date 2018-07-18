@@ -39,78 +39,78 @@ switch(select(	"Lord Knight","Paladin","High Wizard","Professor","Whitesmith","C
 
 			case 1:	mes " Ok, você irá se tornar um Lord Knight";
 next;
-set usclass,1;
-setjob 4008;
+set BaseLevel,99
+jobchange(4008);
 close; end;
 			case 2:	mes " Ok, você irá se tornar um Paladin";
 next;
-set usclass,1;
-setjob 4015;
+set BaseLevel, BaseLevel + 99
+jobchange(4015);
 close; end;
 			case 3: mes " Ok, você irá se tornar um High Wizard";
 next;
-set usclass,1;
-setjob 4010;
+set BaseLevel,99
+jobchange(4010);
 close; end;
 			case 4: mes " Ok, você irá se tornar um Professor";
 next;
-set usclass,1;
-setjob 4017;
+set BaseLevel,99
+jobchange(4017);
 close; end;
 			case 5: mes " Ok, você irá se tornar um Whitesmith";
 next;
-set usclass,1;
-setjob 4011;
+set BaseLevel,99
+jobchange(4011);
 close; end;
 			case 6: mes " Ok, você irá se tornar um Creator";
 next;
-set usclass,1;
-setjob 4019;
+set BaseLevel,99
+jobchange(4019);
 close; end;
 			case 7: mes " Ok, você irá se tornar um Assassin Cross";
 next;
-set usclass,1;
-setjob 4013;
+set BaseLevel,99
+jobchange(4013);
 close; end;
 			case 8:	mes " Ok, você irá se tornar um Stalker";
 next;
-set usclass,1;
-setjob 4018;
+set BaseLevel,99
+jobchange(4018);
 close; end;
 			case 9:	mes " Ok, você irá se tornar um Sniper";
 next;
-set usclass,1;
-setjob 4012;
+set BaseLevel,99
+jobchange(4012);
 close; end;
 			case 10:mes " Ok, você irá se tornar um Clown/Gyspy";
 next;
-set usclass,1;
-setjob 4020;
+set BaseLevel,99
+jobchange(4020);
 close; end;
 			case 11: mes " Ok, você irá se tornar um High Priest";
 next;
-set usclass,1;
-setjob 4009;
+set BaseLevel,99
+jobchange(4009);
 close; end;
 			case 12: mes " Ok, você irá se tornar um Champion";
 next;
-set usclass,1;
-setjob 4016;
+set BaseLevel,99
+jobchange(4016);
 close; end;
 			case 13: mes " Ok, você irá se tornar um Ninja";
 next;
-set usclass,1;
-setjob 25;
+set BaseLevel,99
+jobchange(25);
 close; end;
 			case 14: mes " Ok, você irá se tornar um Justiceiro";
 next;
-set usclass,1;
-setjob 24;
+set BaseLevel,99
+jobchange(24);
 close; end;
 			case 15: mes " Ok, você irá se tornar um Super Aprendiz";
 next;
-set usclass,1;
-setjob 23;
+set BaseLevel,99
+jobchange(23);
 close; end;
 			case 16: mes "Ok, volte quando precisar dessa pobre senhora!";
 close;
