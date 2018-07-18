@@ -1,617 +1,493 @@
-prontera,153,193,5	script	Mestra das Classes	838,{
-mes $@nome$;
-if(Class > 4007 && Class < 4023 || Class > 4046 && Class < 4050 || Class > 4029 && Class < 4046 || Class == 4045){
-mes "Não posso fazer nada por você.";
-close;
-}
-set BaseLevel,BaseLevel+$@level;
-mes "Olá ^0000CD"+strcharinfo(0)+"^000000";
-mes "Gostaria de mudar de classe?";
-next;
-menu "Sim, por favor.",-,"Não, obrigado.",nao;
-next;
-mes $@nome$;
-mes "Tudo bem,";
-mes "Escolha qual classe";
-mes "Deseja se tornar:";
-next;
-menu "-Mostre me as opções..",-,"Nenhuma, obrigado",nao;
-next;
-menu "- Algoz",algoz,"- Desordeiro",desordeiro,"- Menestrel/Cigana",menestrel,"- Mestre",mestre,"- Mestre-ferreiro",mestreferreiro,"- Atirador de Elite",atirador,"- Criador",criador,"- Arquimago",arquimago,"- Lorde",lorde,"- Paladino",paladino,"- Sumo Sacerdote",sumo,"- Professor",professor,"- Cavaleiro",cavaleiro,"- Mercenário",mercenario,"- Arruaceiro",arruaceiro,"- Monge",monge,"-Próximo",-;
-next;
-menu "- Ferreiro",ferreiro,"- Alquimista",alquimista,"-Templário",templario,"- Caçador",cacador,"- Sábio",sabio,"- Bruxo",bruxo,"- Bardo/Odalisca",bardo,"- Sacerdote",sacerdote,"- Taekwon",taekwon,"- Mestre Taekwon",mestretaekwon,"- Espiritualista",espiritualista,"- Justiceiro",justiceiro,"- Ninja",ninja,"- Super Aprendiz",superaprendiz,"-Próximo",-;
-next;
-menu "- Baby Alquimista",babyalquimista,"- Baby Bardo/Odalisca",babybardo,"- Baby Arruaceiro",babyarruaceiro,"- Baby Sábio",babysabio,"- Baby Templário",babytemplario,"- Baby Ferreiro",babyferreiro,"- Baby Caçador",babycacador,"- Baby Bruxo",babybruxo,"- Baby Monge",babymonge,"- Baby Cavaleiro",babycavaleiro,"- Baby Mercenário",babymercenario,"- Baby Sacerdote",babysacerdote,"- Baby Mercador",babymercador,"- Baby Arqueiro",babyarqueiro,"- Baby Aprendiz",babyaprendiz,"- Super Bebê",babysuperaprendiz,"- Baby Espadachim",babyEspadachim,"- Baby Gatuno",babygatuno,"- Baby Mago",babymago,"- Baby Noviço",babynovico,"Nenhum, obrigado.",nao;
-
-cavaleiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Cavaleira!";
-if(sex == 1)mes "Parabéns, você agora é um Cavaleiro!";
-jobchange 7;
-atcommand "@allskill";
-skill 1001,1,0;
-close;
-
-
-mercenario:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Mercenária!";
-if(sex == 1)mes "Parabéns, você agora é um Mercenário!";
-jobchange 12;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1003,1,0;
-skill 1004,1,0;
-close;
-
-
-bruxo:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Bruxa!";
-if(sex == 1)mes "Parabéns, você agora é um Bruxo!";
-jobchange 9;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1006,1,0;
-close;
-
-
-cacador:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Caçadora!";
-if(sex == 1)mes "Parabéns, você agora é um Caçador!";
-jobchange 11;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1009,1,0;
-close;
-
-
-sacerdote:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Sacerdotisa!";
-if(sex == 1)mes "Parabéns, você agora é um Sacerdote!";
-jobchange 8;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1014,1,0;
-close;
-
-
-ferreiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Ferreira!";
-if(sex == 1)mes "Parabéns, você agora é um Ferreiro!";
-jobchange 10;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1012,1,0;
-skill 1013,1,0;
-close;
-
-templario:
-next;
-if(sex == 0)mes "Parabéns, você agora é uma Templária!";
-if(sex == 1)mes "Parabéns, você agora é um Cavaleiro!";
-jobchange 14;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1002,1,0;
-close;
-
-
-arruaceiro:
-next;
-if(sex == 0)mes "Parabéns, você agora é uma Arruaceira!";
-if(sex == 1)mes "Parabéns, você agora é um Arruaceiro!";
-jobchange 17;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1005,1,0;
-close;
-
-monge:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Monja!";
-if(sex == 1)mes "Parabéns, você agora é um Monge!";
-jobchange 15;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1015,1,0;
-skill 1016,1,0;
-close;
-
-alquimista:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Alquimista!";
-if(sex == 1)mes "Parabéns, você agora é um Alquimista!";
-jobchange 18;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 238,1,0;
-skill 243,1,0;
-skill 244,1,0;
-skill 247,1,0;
-close;
-
-sabio:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Sábia!";
-if(sex == 1)mes "Parabéns, você agora é um Sábio!";
-jobchange 16;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1007,1,0;
-close;
-
-bardo:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Odalisca!";
-if(sex == 1)mes "Parabéns, você agora é um Bardo!";
-jobchange 19;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1010,1,0;
-close;
-
-algoz:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Algoz!";
-if(sex == 1)mes "Parabéns, você agora é um Algoz!";
-jobchange 4013;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-desordeiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Desordeira!";
-if(sex == 1)mes "Parabéns, você agora é um Desordeiro!";
-jobchange 4018;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-menestrel:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Cigana!";
-if(sex == 1)mes "Parabéns, você agora é um Menestrel!";
-jobchange 4021;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-mestre:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Mestra!";
-if(sex == 1)mes "Parabéns, você agora é um Mestra!";
-jobchange 4016;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-criador:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Criadora!";
-if(sex == 1)mes "Parabéns, você agora é um Criador!";
-jobchange 4019;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-lorde:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Lady!";
-if(sex == 1)mes "Parabéns, você agora é um Lorde!";
-jobchange 4008;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-paladino:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Paladina!";
-if(sex == 1)mes "Parabéns, você agora é um Paladino!";
-jobchange 4015;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-mestreferreiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Mestre-Ferreira!";
-if(sex == 1)mes "Parabéns, você agora é um Mestre-Ferreiro!";
-jobchange 4011;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-atirador:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Atidarora de Elite!";
-if(sex == 1)mes "Parabéns, você agora é um Atirador de Elite!";
-jobchange 4012;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-sumo:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Sumo-Sacerdotiza!";
-if(sex == 1)mes "Parabéns, você agora é um Sumo-Sacerdote!";
-jobchange 4009;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-arquimago:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Arquimaga!";
-if(sex == 1)mes "Parabéns, você agora é um Arquimago!";
-jobchange 4010;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-professor:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Professora!";
-if(sex == 1)mes "Parabéns, você agora é um Professor!";
-jobchange 4017;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babyespadachim:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Espadashin!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Espadashin!";
-jobchange 2024;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babygatuno:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Gatuna!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Gatuno!";
-jobchange 4029;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babymago:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby maga!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Mago!";
-jobchange 4025;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1010,1,0;
-close;
-
-babynovico:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Noviça!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Noviço!";
-jobchange 4027;
-atcommand "@allskill";
-atcommand "@blvl 99; 
-tcommand "@jlvl 70";
-close;
-
-babymercador:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Mercadora!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Mercador!";
-jobchange 4028;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1010,1,0;
-close;
-
-babyarqueiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Arqueira!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Arqueiro!";
-jobchange 4026;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babyaprendiz:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Aprendiz!";
-if(sex == 1)mes "Parabéns, você agora é um Aprendiz!";
-jobchange 4023;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babysuperaprendiz:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Super Aprendiz!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Super Aprendiz!";
-jobchange 4045;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
+//===== EinherjarRO Scripts ================================== 
+//= Ex Job Master
+//===== By: ================================================== 
+//= Stolao
+//===== Current Version: ===================================== 
+//= 3.3B
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= Allows players to freely swap between jobs storing
+//= all stats and skill points of each job.
+//= make .MenuOptions bitwise
+//===== Comments: ============================================
+//= [Stolao]
+//= Suggest using a modified exp_db to restict/inhibit Novice training
+//= exp.txt
+//=
+//= Borrowed a snippet from Euphy's Class Mastery, modified
+//= Uses Euphy's Renting, only modifed price area and setdragon;
+//= Used Euphy's Skill/Stats Reseter as referance for mine
+//=
+//= Euphy's work can be found here
+//= http://rathena.org/board/topic/64394-%E2%9C%B0-euphys-scripts-%E2%9C%B0/
+//=
+//= Todo
+//= Make Rental/Point/Item check a func
+//= Make removing items/points a func
+//= Rewrite oninit section for easier understanding
+//= Add a special check for super novice
+//===== Known Bugs: ==========================================
+//= Platnium Skills earned are sometimes lost on job change if platnium is disabled, unsure of fix
+//= setdragon select() might not give you color you select, due to bug in setdragon
+//= more optimization possible?
+//===== Additional Comments: =================================
+//= For changelog see Older Versions
+//= 3.33 Changed all While -> For
+//= 3.34 Improved Load_Stats functionality, no longer uses atoi()
+//= 3.35 Shortened Save_stats by 1 line
+//= 3.36 Removed TotalLvCalc func as I deemed useless
+//= 3.37 Fixed bug with unlocking a class, gaining extra skill points
+//= 3.38 Shortened Ulock Class by 1 line
+//= 3.39 fixed missing ')' on line 172
+//= 3.3A Fixed error in menu generation when off default settings
+//= 3.3B Added a check forces character to novice from high novice
+//===== Contact Ifo: =========================================
+//= [Stolao] 
+//= Email: Taingram11@gmail.com
+//============================================================
+prontera,149,184,4	script	Job-Master	123,{
+	callfunc "Save_Stats";
+	mes .Name$;
+	mes "How can I help you today?";
+	set .@M,select(.MainMenu$);
+	switch(.MainList[.@M]){
+		Case 1:
+			set .@M,select(.JobMenu$);
+			switch(.JobList[.@M]){
+				case 1:	//Change Job
+					mes "Which Class?";
+					set .@menu$, "";
+					for(set .@i,1; .@i<getarraysize(.ROEAJLIST); set .@i,.@i+1){
+						set .@j$,getd("JStats"+.ROEAJLIST[.@i]+"$");
+						explode(.@s$,.@j$,"|");
+						switch(.@s$[0]){
+							case 8:
+								if(.JobsAllow & 8){
+									set .@menulist$[.@i],""+jobname(roclass(eaclass(.ROEAJLIST[.@i])|EAJL_UPPER))+" ^BF0000"+.@s$[1]+"^000000/^40FF00"+.@s$[2]+"^000000";
+									set .@menuref[.@i],roclass(eaclass(.ROEAJLIST[.@i])|EAJL_UPPER);
+								} else {
+									set .@menulist$[.@i],"";
+								}
+							Break;
+							case 4:
+								if(.JobsAllow & 4){
+									set .@menulist$[.@i],""+jobname(roclass(eaclass(.ROEAJLIST[.@i])|EAJL_BABY))+" ^BF0000"+.@s$[1]+"^000000/^40FF00"+.@s$[2]+"^000000";
+									set .@menuref[.@i],roclass(eaclass(.ROEAJLIST[.@i])|EAJL_BABY);
+								} else {
+									set .@menulist$[.@i],"";
+								}
+							Break;
+							case 1: set .@menulist$[.@i],""+jobname(.ROEAJLIST[.@i])+" ^BF0000"+.@s$[1]+"^000000/^40FF00"+.@s$[2]+"^000000"; set .@menuref[.@i],.ROEAJLIST[.@i]; Break;
+							Break;
+							default:
+							case 0:
+								set .@menulist$[.@i],"";
+							Break;
+					}
+					set .@menu$,.@menu$ + ":" + .@menulist$[.@i];
+					}
+					set @menu, select(.@menu$)-1;
+					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if(roclass(eaclass() & EAJ_UPPERMASK) == .ROEAJLIST[@menu]){ mes "Your already that class, no need to change"; close; }
+					if((.FeeType & 1) && .LoadCost[0] > getd(.FeePoint$[0])){ mes "Sorry, You need "+.LoadCost[0]+" "+.FeePoint$[1]+"."; close; }
+					if((.FeeType & 2) && .LoadCost[1] > countitem(.FeeItem)){ mes "Sorry, You don't have enough "+.LoadCost[1]+" "+getitemname(.FeeItem)+"."; close; }
+					if((.FeeType & 1) && .LoadCost[0]) setd .FeePoint$[0],getd(""+.FeePoint$[0]+"")-.LoadCost[0];
+					if((.FeeType & 2) && .LoadCost[1]) delitem .FeeItem,.LoadCost[1];
+					callfunc "Load_Stats",getd("JStats"+.ROEAJLIST[@menu]+"$"),.@menuref[@menu];
+					close;
+				break;
+				case 2:	//Unlock
+					mes "Which Class?";
+					set .@menu$, "";
+					for(set .@i,1; .@i<getarraysize(.ROEAJLIST); set .@i,.@i+1){
+						set .@j$,getd("JStats"+.ROEAJLIST[.@i]+"$");
+						explode(.@s$,.@j$,"|");
+						switch(.@s$[0]){
+							case 0:
+								set .@menulist$[.@i],jobname(.ROEAJLIST[.@i]); set .@menuref[.@i],.ROEAJLIST[.@i];
+							Break;
+							default:
+								set .@menulist$[.@i],"";
+							Break;
+					}
+					set .@menu$,.@menu$ + ":" + .@menulist$[.@i];
+					}
+					set @menu, select(.@menu$)-1;
+					if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
+						mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding.";
+						close; 
+					}
+					if((.@menuref[@menu]&EAJL_2) && (roclass(eaclass(.@menuref[@menu])&EAJ_UPPERMASK)) != (roclass(eaclass()|EAJL_2_1)) && (roclass(eaclass(.@menuref[@menu])&EAJ_UPPERMASK)) != (roclass(eaclass()|EAJL_2_2)) && (.@menuref[@menu] != 4046)){
+						mes "Sorry, Must be the previous class to unlock.";
+						close;
+					}
+					if(( ( 0 < eaclass(.@menuref[@menu]) && eaclass(.@menuref[@menu]) <8 ) || ( 22 < eaclass(.@menuref[@menu]) && eaclass(.@menuref[@menu]) < 26) || ( 4046 == eaclass(.@menuref[@menu]) ) ) && (EAJ_NOVICE != eaclass())){
+						next;
+						mes "Sorry, Must be the previous class to unlock.";
+						close;	
+					}
+					if(!(.@menuref[@menu]&EAJL_2)&&!(.@menuref[@menu]&EAJL_THIRD)) setarray .@z,.UnlockFirst[0],.UnlockFirst[1];
+					if(.@menuref[@menu]&EAJL_2) setarray .@z,.UnlockSecond[0],.UnlockSecond[1];
+					if(.@menuref[@menu]&EAJL_THIRD) setarray .@z,.UnlockThird[0],.UnlockThird[1];
+					if((.FeeType & 1) && .@z[0] > getd(.FeePoint$[0])){ mes "Sorry, You need "+.@z[0]+" "+.FeePoint$[1]+"."; close; }
+					if((.FeeType & 2) && .@z[1] > countitem(.FeeItem)){ mes "Sorry, You don't have enough "+.@z[1]+" "+getitemname(.FeeItem)+"."; close; }
+					if((.FeeType & 1) && .@z[0]) setd .FeePoint$[0],getd(""+.FeePoint$[0]+"")-.@z[0];
+					if((.FeeType & 2) && .@z[1]) delitem .FeeItem,.@z[1];
+					ResetSkill;
+					callfunc "Save_Stats";
+					callfunc "Load_Stats",getd("JStats"+.ROEAJLIST[@menu]+"$"),.@menuref[@menu];
+					close;
+				break;
+				case 3:	//Rebirth
+					set .@i, select("Rebirth:Leave");
+					if (.@i==2) close;
+					set .@eac, eaclass();
+					set .@roc, roclass(.@eac|EAJL_UPPER);
+					if (.@roc == -1) { mes "You have no Rebirth Class"; close; }
+					if(.@eac&EAJL_BABY){ mes "Once your a Baby you cant becaome a Reborn sorry."; close; }
+					if(.@eac&EAJL_UPPER){ mes "Once your a Rebirth you cant becaome a Reborn again, sorry."; close; }
+					if(BaseLevel < .ReqRebirth[0]||JobLevel < .ReqRebirth[1]){ mes "You must be Level "+.ReqRebirth[0]+"/"+.ReqRebirth[1]+" to rebirth, sorry."; close; }
+					if(.UnlockRebirth[0]) mes "Rebirth cost "+.UnlockRebirth[0]+" "+.FeePoint$[1]+".";
+					if(.UnlockRebirth[1]) mes "Ribirth requires  "+.UnlockRebirth[0]+" "+.FeePoint$[1]+".";
+					mes "Are you sure you wish to become reborn?";
+					set .@i, select("Yes:No");
+					if (.@i==2) close;
+					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if((.FeeType & 1) && .UnlockRebirth[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.UnlockRebirth[0]+" "+.FeePoint$[1]+"."; close; }
+					if((.FeeType & 2) && .UnlockRebirth[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.UnlockRebirth[1]+" "+getitemname(.FeeItem)+"."; close; }
+					jobchange .@roc,1;
+					resetlvl 3;
+					sc_end SC_ALL;
+					ResetSkill;
+					ResetStatus;
+					set SkillPoint, SkillPoint-49;
+					set StatusPoint, 100;
+					if((.FeeType & 1) && .UnlockRebirth[0]) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.UnlockRebirth[0];
+					if((.FeeType & 2) && .UnlockRebirth[1]) delitem .FeeItem,.UnlockRebirth[1];
+					close;
+				break;
+				case 4:	//Baby
+					set .@i, select("Convert "+(.@eac&EAJL_BABY)?" from":"to"+" Baby:Leave");
+					if (.@i==2) close;
+					set .@eac, eaclass();
+					if(.@eac&EAJL_UPPER){ mes "Once your reborn you cant becaome a baby again im sorry."; close; }
+					mes "Are you sure you wish to become a baby?";
+					set .@i, select("Yes:No");
+					if (.@i==2) close;
+					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if((.FeeType & 1) && .UnlockBaby[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.UnlockBaby[0]+" "+.FeePoint$[1]+"."; close; }
+					if((.FeeType & 2) && .UnlockBaby[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.UnlockBaby[1]+" "+getitemname(.FeeItem)+"."; close; }
+					if(.@eac&EAJL_BABY){ jobchange (.@eac&EAJ_UPPERMASK),0; 
+					} else { jobchange .@eac,2; }
+					if((.FeeType & 1) && .UnlockBaby[0]) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.UnlockBaby[0];
+					if((.FeeType & 2) && .UnlockBaby[1]) delitem .FeeItem,.UnlockBaby[1];
+					close;
+				break;
+				case 5:	//Wipe
+					Mes "Are you sure you want to wipe your "+jobname(roclass(eaclass()))+" data? It will be like you never unlocked it";
+					set .@i, select("No:Yes");
+					if (.@i==1) close;
+					Mes "Please type in your name";
+					input .@Name$;
+					if(.@Name$ != strcharinfo(0)){ next; mes .Name$; mes "Sorry, You need to type your name in correctly."; close; }
+					if (checkfalcon() || checkcart() || checkriding() || ismounting()) { mes "Please remove your "+((checkfalcon())?"falcon":"")+((checkcart())?"cart":"")+((checkriding())?"Peco":"")+((ismounting())?"mount":"")+" before proceeding."; close;  }
+					if((.FeeType & 1) && .WipeCost[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.WipeCost[0]+" "+.FeePoint$[1]+"."; close; }
+					if((.FeeType & 2) && .WipeCost[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.WipeCost[1]+" "+getitemname(.FeeItem)+"."; close; }
+					sc_end SC_ALL;
+					set .@i$, roclass(eaclass() & EAJ_UPPERMASK);
+					setd "JStats"+.@i$+"$","";
+					if(.@i$ == "0") set JStats0$,"1|1|1|0|1|1|1|1|1|1|42";
+					if((.FeeType & 1) && .WipeCost[0]) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.WipeCost[0];
+					if((.FeeType & 2) && .WipeCost[1]) delitem .FeeItem,.WipeCost[1];
+					callfunc "Load_Stats",getd("JStats0$"),0;
+					close;
+				break;
+				default:
+				case 6: next; mes .Name$; mes "Come Again"; close; break;
+			}
+		Case 2:
+			if(.FreeReset[0] <= BaseLevel || .FreeReset[1] <= JobLevel){
+				set .@cost[1],.StatsCost[0]+.StatsCost[1]*BaseLevel;
+				set .@cost[2],.SkillCost[0]+.SkillCost[1]*BaseLevel;
+				set .@cost[3],.BothCost[0]+.BothCost[1]*BaseLevel;
+				set .@cost[4],.StatsCost[2]+.StatsCost[3]*BaseLevel;
+				set .@cost[5],.SkillCost[2]+.SkillCost[3]*BaseLevel;
+				set .@cost[6],.BothCost[2]+.BothCost[3]*BaseLevel;
+				switch(.FeeType){
+					case 1:
+						set .@mes$[1],""+.@cost[1]+" "+.FeePoint$[1]+" to reset stats";
+						set .@mes$[2],""+.@cost[2]+" "+.FeePoint$[1]+" to reset skills";
+						set .@mes$[3],""+.@cost[3]+" "+.FeePoint$[1]+" to reset both stats and skills";
+					break;
+					case 2:
+						set .@mes$[1],""+.@cost[4]+" "+getitemname(.FeeItem)+" to reset stats";
+						set .@mes$[2],""+.@cost[5]+" "+getitemname(.FeeItem)+" to reset skills";
+						set .@mes$[3],""+.@cost[6]+" "+getitemname(.FeeItem)+" to reset both stats and skills";
+					break;
+					case 3:
+						set .@mes$[1],""+((.@cost[1])?""+.@cost[1]+" "+getitemname(.FeeItem)+"":"")+((.@cost[1]&&.@cost[4])?" and ":"")+((.@cost[4])?""+.@cost[4]+" "+.FeePoint$[1]+"":"")+" to reset stats";
+						set .@mes$[2],""+((.@cost[2])?""+.@cost[2]+" "+getitemname(.FeeItem)+"":"")+((.@cost[2]&&.@cost[5])?" and ":"")+((.@cost[5])?""+.@cost[5]+" "+.FeePoint$[1]+"":"")+" to reset skills";
+						set .@mes$[3],""+((.@cost[3])?""+.@cost[3]+" "+getitemname(.FeeItem)+"":"")+((.@cost[3]&&.@cost[6])?" and ":"")+((.@cost[6])?""+.@cost[6]+" "+.FeePoint$[1]+"":"")+" to reset both stats and skills";
+					break;
+					case 0: default:
+						set .@mes$[1],"Nothing to reset"; set .@mes$[2],"Nothing to reset"; set .@mes$[3],"Nothing to reset"; break;
+				}
+			} else {
+				next;
+				mes .Name$;
+				mes "Reseting is the prossess of reseting skills and/or stats back to 0 so you can redistribute points";
+			}
+			next;
+			mes .Name$;
+			if(.FreeReset[0] <= BaseLevel){
+				mes "It Cost "+.@mes$[1];
+				mes "It Cost "+.@mes$[2];
+				mes "It Cost "+.@mes$[3];
+			} else { mes "Everything is Free"; }
+			set .@i, select("Reset Stats:Reset Skills:Reset Both:Leave");
+			if (.@i==4) close;
+			if(.FreeReset[0] > BaseLevel || .FreeReset[1] > JobLevel){
+				set .@cost[1],.StatsCost[0]+.StatsCost[1]*BaseLevel;
+				set .@cost[2],.SkillCost[0]+.SkillCost[1]*BaseLevel;
+				set .@cost[3],.BothCost[0]+.BothCost[1]*BaseLevel;
+				set .@cost[4],.StatsCost[2]+.StatsCost[3]*BaseLevel;
+				set .@cost[5],.SkillCost[2]+.SkillCost[3]*BaseLevel;
+				set .@cost[6],.BothCost[2]+.BothCost[3]*BaseLevel;
+				if((.FeeType & 1) && getd(""+.FeePoint$[0]+"") < .@cost[.@i]){mes "Sorry, You don't have enough "+.FeePoint$[1]+"."; close; }
+				if((.FeeType & 2) && countitem(.FeeItem) < .@cost[.@i+3]){ mes "Sorry, You don't have enough "+getitemname(.FeeItem)+"."; close; }	
+				if(.FeeType & 1) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.@cost[.@i];
+				if(.FeeType & 2) delitem .FeeItem,.@cost[.@i+3];
+			}
+			if (.@i & 1) ResetStatus;
+			if (.@i & 2) { sc_end SC_ALL; ResetSkill; }
+			close;
+		break;
+		Case 3:
+			next;
+			mes .Name$;
+			mes "Renting allows you to gain a; Cart, Falcon, Mado Gear, Warg, Peco, or Dragon Depending on your class.";
+			mes "Renting Cost "+((.FeeType & 2)?""+.RentCost[1]+" "+getitemname(.FeeItem)+"":"")+((.FeeType & 3)?" and ":"")+((.FeeType & 1)?""+.RentCost[0]+" "+.FeePoint$[1]+"":"")+" to rent any of these";
+			set .@i, select("Rent Mount/Falcon/Cart:Leave");
+			if(.@i == 2) close;
+			if((.FeeType & 1) && .RentCost[0] > getd(""+.FeePoint$[0]+"")){ mes "Sorry, You need "+.RentCost[0]+" "+.FeePoint$[1]+"."; close; }
+			if((.FeeType & 2) && .RentCost[1] > countitem(.FeeItem)){ mes "Sorry, You need "+.RentCost[1]+" "+getitemname(.FeeItem)+"."; close; }
+			if (ismounting()) { mes "You must first remove your mount."; close; }
+			else if ((eaclass()&EAJ_THIRDMASK==EAJ_RANGER) && !countitem(6124)) {
+				if (!checkfalcon() && getskilllv(127) && !checkwug()) {
+					if(select(" ~ Falcon: ~ Warg")==1) setfalcon;
+					else getitem 6124,1; }
+				else getitem 6124,1; }
+			else if ((eaclass()&EAJ_THIRDMASK==EAJ_MECHANIC) && !checkcart() && getskilllv(39)) {
+				if (!checkmadogear() && getskilllv(2255)) {
+					if(select(" ~ Cart: ~ Mado")==1) setcart;
+					else setmadogear; }
+				else setcart; }
+			else if (!checkcart() && getskilllv(39)) setcart;
+			else if (!checkfalcon() && getskilllv(127) && !checkwug()) setfalcon;
+			else if (!checkriding() && getskilllv(63)) {
+				if (eaclass()&EAJ_THIRDMASK==EAJ_RUNE_KNIGHT) setdragon select("Green:Brown:Gray:Blue:Red");
+				else setriding; }
+			else if (!checkmadogear() && getskilllv(2255)) setmadogear;
+			else { mes "You do not meet requirements to rent."; close; }
+			if((.FeeType & 1) && .RentCost[0]) setd ""+.FeePoint$[0]+"",getd(""+.FeePoint$[0]+"")-.RentCost[0];
+			if((.FeeType & 2) && .RentCost[1]) delitem .FeeItem,.RentCost[1];
+			close;
+		break;
+		Case 4:
+			next;
+			mes "What would you like deatils on?";
+			set .@M,select(.MainMenu$);
+			switch(.MainList[.@M]){
+				Case 1:
+					set .@M,select(.JobMenu$);
+					switch(.JobList[.@M]){
+						case 1://Change
+						break;
+						case 2://Unlock
+						break;
+						case 3://Rebirth
+						break;
+						case 4://Baby
+						break;
+						case 5://Wipe
+						break;
+						Default://Close
+						case 6: next; mes .Name$; mes "Come Again"; close; break;
+					}
+				Case 2:
 
 
-babycavaleiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Cavaleira!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Cavaleiro!";
-jobchange 4030;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
+					close;
+				break;
+				Case 3:
+					close; 
+				break;
+				Case 4: next; mes .Name$; mes "No Stupid Questions now..."; close; break;
+				Case 5:
+				default: next; mes .Name$; mes "Come Again"; close; break;
+			}
+		break;
+		Case 5:
+		Default: next; mes .Name$; mes "Come Again"; close; break;
+	}
+end;
+OnInit:
+set .Name$,"[Job Master]";					//NPC name
+set .JobsAllow,1|2|4|8;						//Enable Disable Classes in Server
+								//Value is a bit field, [1] 1-1; [2] 2-1/2-2; [4] Baby; [8] Trans; [16] Third Job; [32] Custom classes.
+								//	ex: 1|2|4|8 Enables All but Third, or Custom
 
-babymercenario:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Mercenaria!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Mercenario!";
-jobchange 4035;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-skill 1010,1,0;
-close;
+set .JobsUnlock,1|2|4|8;					//Enable/Disable Unlocking of Classes Without Going through Job Quest
+								//Value is a bit field, [1] 1-1; [2] 2-1/2-2; [4] Baby; [8] Trans; [16] Third Job; [32] Custom classes.
+								//	ex: [1|2|4|8] Enables All but Third, or Custom
 
-babysacerdote:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Sacerdotiza!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Sacerdote!";
-jobchange 4031;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
+set .FeeType,1;							//How is Player charged to use Job Changer
+								//Value is a bit field, [0] No Charge; [1] Zeny/Point; [2] Item;
+								//	ex: [1|2] Player will be charged Zeny/Points and items for any action
 
-babyferreiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Ferreira!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Ferreiro!";
-jobchange 4033;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
+set .FeeItem,609;						//Item Currency Type Used in NPC as Fee
+//			[0]	[1]				//Zeny/Point Currency Type Used in NPC Fee
+setarray .FeePoint$,	"Zeny",	"Zeny";				//[0]Point Variable, make sure have "" around variable name
+								//	ex: "Zeny", "CASHPOINTS", "#PvpKills"
+								//[1]Point Name (for mes)
 
-babycacador:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Caçadora!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Caçador!";
-jobchange 4034;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
+								//Enable/Disable Menus is NPC
+set .MenuOptions,	1|2|4;					//Value is a bit field, [1] Reset Stats/Skills; [2] Renting; [4] Auto Learn Platnium SKills; [8] Job Wipe;
+								//	ex: 1|2|4|8 Enables All
+								//Note: Job Wipe is the wiping of all the stats related to the Class your currently on then loading as a Novice
 
-babybruxo:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Bruxa!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Bruxo!";
-jobchange 4032;
-skill 1010,1,0;
-close;
+								//Cost are in array format
+//			[0]	[1]				//[0] Zeny/Point Cost; [1] Item Cost
+setarray .LoadCost,	7500	,0;				//Cost of Loading Saved Class
+setarray .RentCost,	5000	,0;				//Cost of Renting a Mount/Falcon/Cart
+setarray .UnlockFirst,	10000	,0;				//Cost of Unlocking a First Class
+setarray .UnlockSecond,	100000	,0;				//Cost of Unlocking a Second Class
+setarray .UnlockBaby,	2500	,0;				//Cost of Converting to a Baby
+setarray .UnlockRebirth,1285000	,0;				//Cost of Rebirth
+setarray .UnlockThird,	99999999,0;				//Cost of Unlocking a Third Class
+setarray .WipeCost,	0	,0;				//Wiping Job Data
 
-babymonge:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Monja!";
-if(sex == 1)mes "Parabéns, você agora é um Monge!";
-jobchange 4038;
-atcommand "@allskill";
-atcommand "@blvl 99; 
-tcommand "@jlvl 70";
-close;
+								//Cost of Resets are in array format
+//			[0]	[1]	[2]	[3]		//[0] Zeny/Point Cost; [1] Zeny/Point Per Level; [2] Item Cost; [3] Item Cost Per Level
+setarray .StatsCost,	1000	,75	,0	,0;		//Cost of Reseting Stats (per BaseLevel)
+setarray .SkillCost,	1000	,75	,0	,0;		//Cost of Reseting Skills (per JobLevel)
+setarray .BothCost,	1500	,65	,0	,0;		//Cost of Reseting Both Stats and  Skills
 
-babyalquimista:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Alquimista!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Alquimista!";
-jobchange 4041;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babybardo:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Odalisca!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Bardo!";
-jobchange 4042;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babyarruaceiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Arruaceira!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Arruaceiro!";
-jobchange 4040;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babysabio:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Sabia!";
-if(sex == 1)mes "Parabéns, você agora é um Baby Sabio!";
-jobchange 4039;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-babytemplario:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Baby Templaria!";
-if(sex == 1)mes "Parabéns, você agora é um baby Templario!";
-jobchange 4037;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-taekwon:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Taekwon!";
-if(sex == 1)mes "Parabéns, você agora é um Taekwon!";
-jobchange 4046;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-mestretaekwon:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Mestra Taekwon!";
-if(sex == 1)mes "Parabéns, você agora é um Mestre Taekwon!";
-jobchange 4047;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-espiritualista:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Espiritualista!";
-if(sex == 1)mes "Parabéns, você agora é um Espiritualista!";
-jobchange 4049;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-justiceiro:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Justiceira!";
-if(sex == 1)mes "Parabéns, você agora é um Justiceiro!";
-jobchange 24;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-ninja:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Ninja!";
-if(sex == 1)mes "Parabéns, você agora é um Ninja!";
-jobchange 25;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
-
-superaprendiz:
-next;
-mes $@nome$;
-if(sex == 0)mes "Parabéns, você agora é uma Super Aprendiz!";
-if(sex == 1)mes "Parabéns, você agora é um Super Aprendiz!";
-jobchange 23;
-atcommand "@allskill";
-atcommand "@blvl 99;
-atcommand "@jlvl 70";
-close;
+								//Level Req are all in array format
+//			[0]	[1]				//[0] BaseLevel; [1] JobLevel
+setarray .FreeReset,	25	,25;				//Level which Stats/Skill Reseting are free till
+setarray .ReqSuper,	45	,0;				//Super Novice Unlock
+setarray .ReqSecond,	0	,50;				//Second Class Unlock
+setarray .ReqRebirth,	99	,50;				//Rebirth OR Third Unlock
 
 
-nao:
-next;
-mes $@nome$;
-mes "Tudo bem,";
-mes "Estarei esperando.";
-close;
 
-//Configurações do NPC.
-Oninit:
-set $@needpoint,0;
-set $@needequip,0;
-set $@needzeny,0;
-set $@questskill,0;
-set $@nome$,"[^FF8000Mestra das Classes^000000]";
-set $@level,99;
-set $@job,70;
+	set .ROEAJLIST[0],1;	//Dont Touch
+	if(.JobsAllow&1){  setarray .ROEAJLIST[getarraysize(.ROEAJLIST)],0	,1	,2	,3	,4	,5	,6	,23	,24	,25	,28	,4046; }
+	if(.JobsAllow&2){  setarray .ROEAJLIST[getarraysize(.ROEAJLIST)],7	,8	,9	,10	,11	,12	,14	,15	,16	,17	,18	,19	,4047	,4049; }
+	if(.JobsAllow&16){ setarray .ROEAJLIST[getarraysize(.ROEAJLIST)],4054	,4055	,4056	,4057	,4058	,4059	,4066	,4067	,4068	,4069	,4070	,4071; }
+
+	//Custom Classes
+	//Format is Class ID of base job, no trans/baby types
+	//	eg: [1]Swordsman doesn't need [4024]Baby Swordsman or [4002]High Swordsman
+	//if(.JobsAllow&33){ setarray .ROEAJLIST[getarraysize(.ROEAJLIST)],0; }		//[33] Custom 1-1
+	//if(.JobsAllow&34){ setarray .ROEAJLIST[getarraysize(.ROEAJLIST)],0; }		//[34] Custom 2-1/2-2
+	//if(.JobsAllow&48){ setarray .ROEAJLIST[getarraysize(.ROEAJLIST)],0; }		//[48] Custom Third Job
+
+	set .MainList[0],1;
+	set .MainMenu$,"Job Managemnet:";
+	set .MainList[getarraysize(.MainList)],1;
+	if(.MenuOptions&1){ set .MainMenu$,.MainMenu$ +"Reset:"; set .MainList[getarraysize(.MainList)],2; }
+	if(.MenuOptions&2){ set .MainMenu$,.MainMenu$ +"Rentals:"; set .MainList[getarraysize(.MainList)],3; }
+//	set .MainMenu$,.MainMenu$ +"Explanation:Leave";
+//	setarray .MainList[getarraysize(.MainList)],4,5;
+
+	set .JobList[0],1;
+	set .JobMenu$,"Change Job:";
+	set .JobList[getarraysize(.JobList)],"1";
+	if(.JobsUnlock&1 || .JobsUnlock&2 ||.JobsUnlock&16 || .JobsUnlock&32){ set .JobMenu$,.JobMenu$ +"Unlock Jobs:"; set .JobList[getarraysize(.JobList)],"2"; }
+	if(.JobsAllow&8 && .JobsUnlock&8){ set .JobMenu$,.JobMenu$ +"Rebirth:"; set .JobList[getarraysize(.JobList)],"3"; }
+	if(.JobsAllow&4 && .JobsUnlock&4){ set .JobMenu$,.JobMenu$ +"Conver to/from Baby:"; set .JobList[getarraysize(.JobList)],"4"; }
+	if(.MenuOptions&8){ set .JobMenu$,.JobMenu$ +"Wipe Job Data:"; set .JobList[getarraysize(.JobList)],"5"; }
+	set .JobMenu$,.JobMenu$ +"Leave";
+	set .JobList[getarraysize(.JobList)],"6";
+end;
+OnPCBaseLvUpEvent:
+OnPCJobLvUpEvent:
+	callfunc "Save_Stats";
 end;
 }
+
+function	script	Load_Stats	{
+	sc_end SC_ALL;
+	set .@s,"";
+	set .@s$,"";
+	if(getarg(1) == 4001 || getarg(1) == "4001"){ jobchange 0; } else { jobchange getarg(1); }
+		explode(.@s$,getarg(0),"|");
+		set .@size, getarraysize( .@s$ );
+		for ( .@i = 0; .@i < .@size; set .@i, .@i+1 ) .@s[.@i] = atoi( .@s$[.@i] );
+		set BaseLevel, .@s[1];
+		set JobLevel, .@s[2];
+		ResetStatus;
+		ResetSkill;
+		for(set .@i,13; .@i<19; set .@i,.@i+1){
+			statusup2 .@i, .@s[.@i-9]-1;
+		}
+		set StatusPoint, .@s[10];
+		set SkillPoint, .@s[3];
+		if(getvariableofnpc(.MenuOptions,"Job-Master")&4){
+		skill 142,1,0;
+			switch(BaseClass) {
+			case 0: if (Class !=23) skill 143,1,0; break;
+			case 1: skill 144,1,0; skill 145,1,0; skill 146,1,0; break;
+			case 2: skill 157,1,0; break;
+			case 3: skill 147,1,0; skill 148,1,0; break;
+			case 4: skill 156,1,0; break;
+			case 5: skill 153,1,0; skill 154,1,0; skill 155,1,0; break;
+			case 6: skill 149,1,0; skill 150,1,0; skill 151,1,0; skill 152,1,0; break;
+			default: break; }
+			switch(roclass(eaclass()&EAJ_UPPERMASK)) {
+			case 7: skill 1001,1,0; break;
+			case 8: skill 1014,1,0; break;
+			case 9: skill 1006,1,0; break;
+			case 10: skill 1012,1,0; skill 1013,1,0; break;
+			case 11: skill 1009,1,0; break;
+			case 12: skill 1003,1,0; skill 1004,1,0; break;
+			case 14: skill 1002,1,0; break;
+			case 15: skill 1015,1,0; skill 1016,1,0; break;
+			case 16: skill 1007,1,0; skill 1008,1,0; skill 1017,1,0; skill 1018,1,0; skill 1019,1,0; break;
+			case 17: skill 1005,1,0; break;
+			case 18: skill 238,1,0; break;
+			case 19: skill 1010,1,0; break;
+			case 20: skill 1011,1,0; break;
+			default: break; }
+		}
+	return;
 }
+
+function	script	Save_Stats	{			//[Note]: I made this a seperate function so I can call elsewhere if needed
+		if(eaclass() & EAJL_UPPER){ set .@s$,"8";
+		} else if (eaclass() & EAJL_BABY){ set .@s$,"4";
+		} else { set .@s$,"1"; }
+		set .@i$, roclass(eaclass() & EAJ_UPPERMASK);	
+		set .@s$,.@s$+"|"+readparam(11)+"|"+readparam(55)+"|"+skillPointCount()+"|";
+		for(set .@i,13; .@i<19; set .@i,.@i+1){
+			set .@s$,.@s$+readparam(.@i)+"|";
+		}
+		setd "JStats"+.@i$+"$", .@s$+StatusPoint;
+		//[Note]: End result should look like following without the spaces
+		//[Note]: JStats(job)$, Lock | Blv | Jlv | SkillPoints | Str | Agi | Vit | Int | Dex | Luk | StatusPoint;
+		//Option 2 can be Class:Baby:Trans
+		//JStats(job)$,Lock|Blv|Jlv|SkillPoints|Str|Agi|Vit|Int|Dex|Luk|StatusPoint:Blv|Jlv|SkillPoints|Str|Agi|Vit|Int|Dex|Luk|StatusPoint:Blv|Jlv|SkillPoints|Str|Agi|Vit|Int|Dex|Luk|StatusPoint;
+return;
+}
+
+
+
+
+
+
+
+
+
