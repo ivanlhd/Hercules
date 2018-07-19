@@ -42,90 +42,105 @@ next;
 jobchange(4008);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 2:	mes " Ok, você irá se tornar um Paladin";
 next;
 jobchange(4015);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 3: mes " Ok, você irá se tornar um High Wizard";
 next;
 jobchange(4010);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 4: mes " Ok, você irá se tornar um Professor";
 next;
 jobchange(4017);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 5: mes " Ok, você irá se tornar um Whitesmith";
 next;
 jobchange(4011);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 6: mes " Ok, você irá se tornar um Creator";
 next;
 jobchange(4019);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 7: mes " Ok, você irá se tornar um Assassin Cross";
 next;
 jobchange(4013);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 8:	mes " Ok, você irá se tornar um Stalker";
 next;
 jobchange(4018);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 9:	mes " Ok, você irá se tornar um Sniper";
 next;
 jobchange(4012);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 10:mes " Ok, você irá se tornar um Clown/Gyspy";
 next;
 jobchange(4020);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 11: mes " Ok, você irá se tornar um High Priest";
 next;
 jobchange(4009);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 12: mes " Ok, você irá se tornar um Champion";
 next;
 jobchange(4016);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 13: mes " Ok, você irá se tornar um Ninja";
 next;
 jobchange(25);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 14: mes " Ok, você irá se tornar um Justiceiro";
 next;
 jobchange(24);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 15: mes " Ok, você irá se tornar um Super Aprendiz";
 next;
 jobchange(23);
 set BaseLevel, BaseLevel + 99;
 set JobLevel, JobLevel + 99;
+atcommand("@allskill")
 close; end;
 			case 16: mes "Ok, volte quando precisar dessa pobre senhora!";
 close;
