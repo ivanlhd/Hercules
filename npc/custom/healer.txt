@@ -29,8 +29,8 @@
 	if (.@Buffs) {
 		specialeffect(EF_INCAGILITY, AREA, playerattached()); sc_start SC_INC_AGI,3600000,10;
 		specialeffect(EF_BLESSING, AREA, playerattached()); sc_start SC_BLESSING,3600000,10;
-		sc_start SC_INTFood, 36000000, 10;sc_start SC_STRFood, 36000000, 10;sc_start SC_LUKFood, 36000000, 10;
-		sc_start SC_VITFood, 36000000, 10;sc_start SC_AGIFood, 36000000, 10;sc_start SC_DEXFood, 1200000, 10;
+		sc_start SC_FOOD_STR,36000000,10;sc_start SC_FOOD_INT,36000000,10;sc_start SC_FOOD_LUK,36000000,10;
+		sc_start SC_FOOD_DEX,36000000,10;sc_start SC_FOOD_VIT,36000000,10;sc_start SC_FOOD_AGI,36000000,10;
 	}
 	if (.@Delay) @HD = gettimetick(2)+.@Delay;
 	end;
